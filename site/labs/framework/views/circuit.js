@@ -25,8 +25,10 @@ const svg = (tag, attrs = {}, ...children) => {
 
 export class CircuitView {
   /** @param {HTMLElement} parent */
-  constructor(parent, { qubits = 1, labels = null, editable = false } = {}) {
+  constructor(parent, { qubits = 1, labels = null, editable = false, scroll = false } = {}) {
     this.parent = parent;
+    this.scroll = scroll;
+    if (scroll) parent.style.overflowX = 'auto';
     this.qubits = qubits;
     this.labels = labels;
     this.editable = editable;
@@ -54,8 +56,8 @@ export class CircuitView {
     const width = left + Math.max(2, cols) * colW + 40;
     const height = top + this.qubits * rowH;
     s.setAttribute('viewBox', `0 0 ${width} ${height}`);
-    s.setAttribute('width', '100%');
-    s.style.maxWidth = `${width}px`;
+    s.setAttribute('width', this.scroll && cols > 6 ? String(width) : '100%');
+    s.style.maxWidth = this.scroll ? 'none' : `${width}px`;
     const y = (q) => top + q * rowH + rowH / 2 - 6;
     // wires and labels
     for (let q = 0; q < this.qubits; q++) {
@@ -80,11 +82,6 @@ export class CircuitView {
           group.append(svg('rect', { x: x - 20, y: yy - 18, width: 40, height: 36, rx: 6 }));
           group.append(svg('path', { d: `M ${x - 11} ${yy + 8} A 11 11 0 0 1 ${x + 11} ${yy + 8}`, class: 'cq-meter' }));
           group.append(svg('line', { x1: x, y1: yy + 8, x2: x + 8, y2: yy - 4, class: 'cq-meter' }));
-        } else if (kind === 'ms' || qs.length === 2) {
-          const y0 = Math.min(...qs.map(y)) - 18, y1 = Math.max(...qs.map(y)) + 18;
-          group.append(svg('rect', { x: x - 24, y: y0, width: 48, height: y1 - y0, rx: 8 }));
-          group.append(svg('text', { x, y: (y0 + y1) / 2 + 4, class: 'cq-text' }, g.label));
-          if (g.sub) group.append(svg('text', { x, y: y1 - 6, class: 'cq-sub' }, g.sub));
         } else if (kind === 'cnot') {
           const [c, t] = qs;
           group.append(svg('line', { x1: x, y1: y(c), x2: x, y2: y(t), class: 'cq-wire' }));
@@ -92,6 +89,11 @@ export class CircuitView {
           group.append(svg('circle', { cx: x, cy: y(t), r: 11, class: 'cq-plus' }));
           group.append(svg('line', { x1: x - 11, y1: y(t), x2: x + 11, y2: y(t), class: 'cq-plusline' }));
           group.append(svg('line', { x1: x, y1: y(t) - 11, x2: x, y2: y(t) + 11, class: 'cq-plusline' }));
+        } else if (kind === 'ms' || qs.length === 2) {
+          const y0 = Math.min(...qs.map(y)) - 18, y1 = Math.max(...qs.map(y)) + 18;
+          group.append(svg('rect', { x: x - 24, y: y0, width: 48, height: y1 - y0, rx: 8 }));
+          group.append(svg('text', { x, y: (y0 + y1) / 2 + 4, class: 'cq-text' }, g.label));
+          if (g.sub) group.append(svg('text', { x, y: y1 - 6, class: 'cq-sub' }, g.sub));
         } else {
           const yy = y(qs[0]);
           group.append(svg('rect', { x: x - 24, y: yy - 18, width: 48, height: 36, rx: 6 }));

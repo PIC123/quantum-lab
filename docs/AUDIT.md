@@ -88,4 +88,7 @@ The recommendation, implemented in this branch:
 
 ## 8. What was changed in this branch
 
-See `CHANGELOG.md` and `docs/PLAN.md` (the original plan, revised to match this audit).
+- `site/`: the snapshot, then the B1–B6 fixes in a separate commit.
+- `site/labs/`: the new v-Labs module with all eight experiments of the plan, wired to the v-Labs menu. Screenshots of every experiment at desktop and phone size are in `docs/screenshots/labs/`.
+- `tests/`: unit tests for the simulation core (`npm test`).
+- `docs/PLAN.md`: the plan revised to match this audit. `CHANGELOG.md`: the summary.

@@ -6,7 +6,7 @@ import { CanvasView, COLORS } from './canvas.js';
 export class Plot extends CanvasView {
   constructor(parent, opts = {}) {
     super(parent, { aspect: opts.aspect ?? 1.7, minHeight: opts.minHeight ?? 170, label: opts.label ?? 'Plot' });
-    this.data = { series: [], xLabel: '', yLabel: '', xRange: null, yRange: null, hlines: [], vlines: [], legend: true };
+    this.data = { series: [], xLabel: '', yLabel: '', xRange: null, yRange: null, hlines: [], vlines: [], legend: true, xTicks: null };
     this.init();
   }
 
@@ -39,9 +39,13 @@ export class Plot extends CanvasView {
     // grid and ticks
     ctx.font = '11px system-ui, sans-serif'; ctx.fillStyle = COLORS.muted; ctx.strokeStyle = COLORS.grid; ctx.lineWidth = 1;
     const ticks = (min, max, n) => { const step = niceStep((max - min) / n); const out = []; for (let v = Math.ceil(min / step) * step; v <= max + 1e-9; v += step) out.push(v); return out; };
-    for (const t of ticks(xmin, xmax, 5)) {
-      ctx.beginPath(); ctx.moveTo(X(t), padT); ctx.lineTo(X(t), padT + ph); ctx.stroke();
-      ctx.textAlign = 'center'; ctx.fillText(fmtTick(t), X(t), padT + ph + 14);
+    if (d.xTicks) {
+      for (const t of d.xTicks) { ctx.textAlign = 'center'; ctx.fillText(t.label, X(t.x), padT + ph + 14); }
+    } else {
+      for (const t of ticks(xmin, xmax, 5)) {
+        ctx.beginPath(); ctx.moveTo(X(t), padT); ctx.lineTo(X(t), padT + ph); ctx.stroke();
+        ctx.textAlign = 'center'; ctx.fillText(fmtTick(t), X(t), padT + ph + 14);
+      }
     }
     for (const t of ticks(ymin, ymax, 4)) {
       ctx.beginPath(); ctx.moveTo(padL, Y(t)); ctx.lineTo(padL + pw, Y(t)); ctx.stroke();

@@ -62,7 +62,7 @@ input[type="range"]:focus-visible::-webkit-slider-thumb { outline: 2px solid #ff
 .seg-btn { font: inherit; font-size: 13px; font-weight: 600; color: var(--muted); background: transparent; border: 0; border-radius: 8px; padding: 6px 12px; cursor: pointer; min-height: 34px; }
 .seg-btn[aria-checked="true"] { background: var(--accent); color: var(--accent-ink); }
 .ctl-toggle { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; user-select: none; }
-.ctl-toggle input { position: absolute; opacity: 0; width: 0; height: 0; }
+.ctl-toggle input { position: absolute; opacity: 0; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 .toggle-track { width: 40px; height: 22px; border-radius: 11px; background: #2a3a5c; position: relative; transition: background 150ms; }
 .toggle-track::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: transform 150ms; }
 .ctl-toggle input:checked + .toggle-track { background: var(--success); }
@@ -115,7 +115,9 @@ input[type="range"]:focus-visible::-webkit-slider-thumb { outline: 2px solid #ff
 .x-body { display: grid; grid-template-columns: minmax(0, 60fr) minmax(280px, 25fr) minmax(260px, 22fr); gap: 12px; align-items: start; }
 .x-lab-col { display: grid; gap: 12px; min-width: 0; }
 .x-lab { padding: 0; overflow: hidden; }
-.x-side { display: grid; gap: 12px; min-width: 0; }
+.x-side { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; min-width: 0; }
+.x-side > .card, .x-lab-col > .card { min-width: 0; max-width: 100%; }
+.card-body { min-width: 0; }
 .x-mission-col { position: sticky; top: 12px; }
 .x-tabs { display: none; }
 .view-canvas { display: block; width: 100%; }
@@ -191,6 +193,7 @@ input[type="range"]:focus-visible::-webkit-slider-thumb { outline: 2px solid #ff
 .hist-cell .bar i { display: block; height: 100%; background: var(--accent); }
 .gauge { display: flex; align-items: center; gap: 12px; }
 .gauge-track { flex: 1; height: 14px; border-radius: 7px; background: linear-gradient(90deg, #38bdf8, #4ade80, #fbbf24, #f87171); position: relative; }
+.gauge-tick { position: absolute; top: -8px; width: 2px; height: 30px; background: var(--success); opacity: 0.9; }
 .gauge-needle { position: absolute; top: -5px; width: 4px; height: 24px; background: #fff; border-radius: 2px; transform: translateX(-2px); transition: left 120ms; }
 .gauge-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); font-family: var(--mono); }
 
