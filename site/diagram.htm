@@ -1,0 +1,97 @@
+<html>
+    <head>
+<title>Diargram</title>
+<script language="javascript" src="js/zoom.js" ></script>
+<script language="javascript" src="js/sim_common.js"></script>
+<script language="javascript" src="js/debug.js"></script>
+<link type="text/css" rel="stylesheet" href="css/diagram.css"/>
+    </head>
+    <style>
+ 
+
+    </style>
+    <script>
+        var lb=false
+        function label_click()
+        {
+            lb=!lb
+            document.getElementById('diagram_label').style.display = lb?"block":"none"
+        }
+        function cover_click()
+        {
+            var flag =document.getElementById('cover').style.display == "none"? true:false
+            if(flag) 
+             {document.getElementById('chip').style.display = "block"
+             document.getElementById('chip').classList.add("anim_c")
+
+        }
+            
+        else  document.getElementById('cover').style.display = "none"
+        }
+        function reset()
+        {
+            document.getElementById('chip').style.display = "none"
+            document.getElementById('chip').classList.remove("anim_c")
+            document.getElementById('cover').style.display="block"
+        }
+    </script>
+    <body>
+
+<div id="zoom">
+    <div id="main">
+        <img src="images/diagram.jpg" id="diagr" width="1200px"/>
+        <img src="images/chip_small.png" id="chip_small" />
+        <img src="images/chip_big.png" id="chip" />
+        <img src="images/cover.png" id="cover"  width="222px"/>
+        <img src="images/diagram_label.png" id="diagram_label" width="1200px"/>
+        <div id="metka1"  onClick="cover_click()">  </div>
+        <div id="lavel1" > <b>Ultra-High Vacuum Chamber</b> <br/>
+            The vacuum chamber provides an ultra-high-vacuum environment so that trapped ions do not
+            collide with background gas molecules. Collisions would heat the ion or eject it from the trap.
+            Typical operating pressures are below Torr.
+        </div>
+      
+
+        <div id="metka2">  </div>
+        <div id="lavel2" > <b> Ion Pump</b> <br/>
+            The ion pump maintains ultra-high vacuum by ionizing residual gas molecules and burying them
+            in internal electrodes. It operates continuously and has no moving parts, making it ideal for long-
+            term ion trapping experiments.
+        </div>
+
+        <div id="metka3">  </div>
+        <div id="lavel3" > <b> 423 nm + 379 nm Lasers (Photo-ionization)</b> <br/>
+            These lasers ionize neutral calcium atoms in two steps. The first laser excites the atom, and the second provides enough energy to remove an electron, creating a trapped Ca<sup>+</sup> ion.
+        </div>
+
+        <div id="metka4">  </div>
+        <div id="lavel4" > <b> 397 nm Laser (Cooling & Fluorescence)</b> <br/>
+            This laser drives a strong cycling transition used for Doppler cooling and fluorescence detection. When the ion scatters photons from this laser, it cools and emits visible light.
+        </div>
+
+        <div id="metka5">  </div>
+        <div id="lavel5" > <b> 397 nm Laser (Cooling & Fluorescence)</b> <br/>
+            This laser drives a strong cycling transition used for Doppler cooling and fluorescence detection. When the ion scatters photons from this laser, it cools and emits visible light.
+        </div>
+
+        <div id="metka6">  </div>
+        <div id="lavel6" > <b> 423 nm + 379 nm Lasers (Photo-ionization)</b> <br/>
+            These lasers ionize neutral calcium atoms in two steps. The first laser excites the atom, and the second provides enough energy to remove an electron, creating a trapped Ca<sup>+</sup> ion.
+        </div>
+        <div id="metka7">  </div>
+        <div id="lavel7" > <b> 397 nm Laser (Cooling & Fluorescence)</b> <br/>
+            This laser drives a strong cycling transition used for Doppler cooling and fluorescence detection. When the ion scatters photons from this laser, it cools and emits visible light.
+          </div>
+          <div id="metka8">  </div>
+          <div id="lavel8" > <b> 866 nm Laser (Repump)</b> <br/>
+              This laser drives a strong cycling transition used for Doppler cooling and fluorescence detection. When the ion scatters photons from this laser, it cools and emits visible light.
+            </div>
+
+    </div>
+</div> 
+<div id="panel_btn">
+<div id="label_btn" onclick="label_click()"> Labels on/off</div>
+<div id="reset" onclick="reset()"> Reset</div>
+</div>
+    </body>
+</html>

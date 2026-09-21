@@ -1,0 +1,131 @@
+<html>
+  <head>
+      <script src='lib/three.min.js'></script>
+      <script src="lib/GLTFLoader.js"></script>
+      <script src="lib/stats.min.js"></script>
+      <script src="lib/OrbitControls.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
+      <script src="my_code.js"></script>
+      <link type="text/css" rel="stylesheet" href="style.css">
+      <link rel="shortcut icon" href="images/ac_icon.ico" />
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <script src="js/root.js"></script>
+      <script src="js/zoom.js"></script>
+  </head>
+  <style>
+
+
+  </style>
+  <body onload="init2();init();">
+    <div id="zoom">
+        <div id="main" >
+                    <img src="images/fon_sim3.jpg" style="position: absolute;"/>
+                      <canvas id="scene" style="width:570px;height:400px;position: absolute;left:12px;top:13px"></canvas>
+                      <div id="start_anim" class="button">Start</div>
+                      <div id="add_ball" class="button no_active">Place ball</div>
+
+
+                  <!--div class="btn" id="btn1"  style="position: absolute;left:10px;top:10px" onclick="open_krichka(this)">Open</div-->
+
+
+                  
+                  <fieldset id="panel4">
+                        <legend>Speed</legend>
+                        <output id="sliderValue3"></output>
+                        <div id="slide3" class="slider-container">
+                            
+                            <div class="field">
+                                <div class="value left">1</div>
+                                <input type="range" min="1" max="5" value="1.2" step="0.2"  class="slider" id="myRange1">
+                                <div class="value right">5</div>
+                                <div class="value center">kHz</div>
+                            </div>
+                        </div>
+                 
+                      
+                  </fieldset>
+
+                  <fieldset id="panel1">
+                    <legend>RF Vertical</legend>
+                     <div id="graphic1"><img src="images/graphic1.jpg"/></div>
+                     <output id="sliderValue1"></output>
+                     <div id="label1_1">kHz</div>
+                     <output id="sliderValue2"></output>
+                     <div id="label1_2">kV</div>
+                     <div id="slide1" class="slider-container">
+                         <div class="sliderLabel">Frequency</div>
+                         <div class="field">
+                             <div class="value left">1</div>
+                             <input type="range" min="1" max="5" value="3" step="0.2" class="slider" id="myRange1">
+                             <div class="value right">5</div>
+                             <div class="value center">kHz</div>
+                         </div>
+                     </div>
+ 
+                     <div id="slide2" class="slider-container">
+                         <div class="sliderLabel">Voltage</div>
+                         <div class="field">
+                             <div class="value left">1</div>
+                             <input type="range" min="1" max="20" value="10" class="slider" id="myRange2">
+                             <div class="value right">20</div>
+                             <div class="value center">kV</div>
+                         </div>
+                     </div>
+             </fieldset>
+ 
+ 
+ 
+             <fieldset id="panel2">
+                 <legend>RF Horizontal</legend>
+                  <div id="graphic2"><img src="images/graphic1.jpg"/></div>
+                  <output id="sliderValue1"></output>
+                  <div id="label1_1">kHz</div>
+                  <output id="sliderValue2"></output>
+                  <div id="label1_2">kV</div>
+                  <div id="slide1" class="slider-container">
+                      <div class="sliderLabel">Frequency</div>
+                      <div class="field">
+                          <div class="value left">1</div>
+                          <input type="range" min="1" max="5" value="3" step="0.2" class="slider" id="myRange1">
+                          <div class="value right">5</div>
+                          <div class="value center">kHz</div>
+                      </div>
+                  </div>
+ 
+                  <div id="slide2" class="slider-container">
+                      <div class="sliderLabel">Voltage</div>
+                      <div class="field">
+                          <div class="value left">1</div>
+                          <input type="range" min="1" max="20" value="10" class="slider" id="myRange2">
+                          <div class="value right">20</div>
+                          <div class="value center">kV</div>
+                      </div>
+                  </div>
+          </fieldset>
+ 
+          <fieldset id="panel3">
+             <legend>DC Voltage</legend>
+             <div id="graphic3"><canvas id="parabolaCanvas" width="224" height="96"></canvas></div>
+             <output id="sliderValue3_1"></output>
+             <div id="label3_1">Voltage</div>
+             <div id="slide1" class="slider-container">
+                
+                 <div class="field">
+                     <div class="value left">0</div>
+                     <input type="range" min="0" max="30" step="0.05"   value="2" class="slider" id="myRange1">
+                     <div class="value right">30</div>
+                     <div class="value center">kV</div>
+                 </div>
+             </div>
+ 
+         </fieldset>
+ 
+</div>
+</div>
+<div class="loader">
+  <div class="ldr_box"><div class="ldr_bar"></div><div class="ldr_txt">Loading...</div>&nbsp;</div>
+  </div>
+
+  </body>
+
+</html>

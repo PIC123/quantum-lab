@@ -1,0 +1,32 @@
+<html>
+  <head>
+      <script src='lib/three.min.js'></script>
+      <script src="lib/GLTFLoader.js"></script>
+      <script src="lib/stats.min.js"></script>
+      <script src="lib/OrbitControls.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
+      <script src="my_code.js"></script>
+      <link type="text/css" rel="stylesheet" href="style.css">
+      <link rel="shortcut icon" href="images/ac_icon.ico" />
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+  <style>
+
+
+  </style>
+  <body onload="init()">
+
+    <canvas id="scene" style="width:1200px;height: 800px;"></canvas>
+    <div id="rad">
+     <label style="cursor: pointer;"><input type="radio" name="view" value="1" checked> View 1 </label> <br/>
+     <label style="cursor: pointer;"><input type="radio" name="view" value="2"> View 2 </label>
+     <div id="label_btn">Show labels</div>
+    </div>
+ <!--div class="btn" id="btn1"  style="position: absolute;left:10px;top:10px" onclick="open_krichka(this)">Open</div-->
+<div class="loader">
+  <div class="ldr_box"><div class="ldr_bar"></div><div class="ldr_txt">Loading...</div>&nbsp;</div>
+  </div>
+
+  </body>
+
+</html>

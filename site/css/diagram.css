@@ -1,0 +1,40 @@
+#zoom { position: absolute; top: 0px; left: 0px; }
+#main { position: absolute; top: 0px; left: 0px; width: 1200px; height: 1052px; overflow: hidden; }
+body { background-color: rgb(228, 228, 230); }
+#diagr { position: absolute; top: 70px; }
+#cover { position: absolute; top: 440px; left: 485px; cursor: pointer; }
+#chip_small { position: absolute; top: 480px; left: 486px; width: 209px; height: 140px; }
+#chip { position: absolute; top: 80px; left: 13px; cursor: pointer; width: 1160px; height: 944px; transform: scale(0.2); display: none; z-index: 10; }
+.anim_c { animation: 3s linear 0s 1 normal forwards running anim_chip; }
+@keyframes anim_chip { 
+  0% { transform: scale(0.2); }
+ 100% { transform: scale(1); }
+}
+#diagram_label { position: absolute; top: 70px; display: none; }
+#panel_btn { position: absolute; top: 0px; left: 50%; transform: translate(-70%, 5px); cursor: pointer; text-align: center; width: 200px; }
+#label_btn { position: absolute; top: 0px; left: 0px; background-color: rgb(170, 168, 168); border: 2px outset; padding: 2px 8px; cursor: pointer; text-align: center; width: 90px; }
+#reset { position: absolute; top: 0px; left: 120px; background-color: rgb(170, 168, 168); border: 2px outset; padding: 2px 8px; cursor: pointer; text-align: center; width: 90px; }
+#lavel1 { background-color: antiquewhite; position: absolute; left: 610px; top: 530px; width: 390px; height: 120px; padding: 10px; font-size: 18px; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; z-index: 9; }
+#metka1 { position: absolute; left: 470px; top: 430px; width: 250px; height: 230px; border-radius: 100px; z-index: 7; cursor: pointer; }
+#metka1:hover + #lavel1 { opacity: 1; visibility: visible; }
+#lavel2 { background-color: antiquewhite; position: absolute; left: 280px; top: 530px; width: 348px; height: 124px; padding: 10px; font-size: 18px; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; z-index: 9; }
+#metka2 { position: absolute; left: 161px; top: 490px; width: 150px; height: 110px; z-index: 7; }
+#metka2:hover + #lavel2 { opacity: 1; visibility: visible; }
+#lavel3 { background-color: antiquewhite; position: absolute; left: 630px; top: 880px; width: 348px; height: 104px; padding: 10px; font-size: 18px; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; z-index: 9; }
+#metka3 { position: absolute; left: 554px; top: 896px; width: 70px; height: 101px; z-index: 7; }
+#metka3:hover + #lavel3 { opacity: 1; visibility: visible; }
+#lavel4 { background-color: antiquewhite; position: absolute; left: 250px; top: 300px; width: 348px; height: 104px; padding: 10px; font-size: 18px; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; z-index: 9; }
+#metka4 { position: absolute; left: 274px; top: 216px; width: 70px; height: 101px; z-index: 7; rotate: -45deg; }
+#metka4:hover + #lavel4 { opacity: 1; visibility: visible; }
+#lavel5 { background-color: antiquewhite; position: absolute; left: 650px; top: 300px; width: 348px; height: 104px; padding: 10px; font-size: 18px; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; z-index: 9; }
+#metka5 { position: absolute; left: 844px; top: 210px; width: 70px; height: 101px; z-index: 7; rotate: 45deg; }
+#metka5:hover + #lavel5 { opacity: 1; visibility: visible; }
+#lavel6 { background-color: antiquewhite; position: absolute; left: 630px; top: 110px; width: 348px; height: 104px; padding: 10px; font-size: 18px; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; z-index: 9; }
+#metka6 { position: absolute; left: 554px; top: 96px; width: 70px; height: 101px; z-index: 7; }
+#metka6:hover + #lavel6 { opacity: 1; visibility: visible; }
+#lavel7 { background-color: antiquewhite; position: absolute; left: 780px; top: 610px; width: 348px; height: 104px; padding: 10px; font-size: 18px; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; z-index: 9; }
+#metka7 { position: absolute; left: 861px; top: 501px; width: 121px; height: 101px; z-index: 7; }
+#metka7:hover + #lavel7 { opacity: 1; visibility: visible; }
+#lavel8 { background-color: antiquewhite; position: absolute; left: 180px; top: 600px; width: 348px; height: 104px; padding: 10px; font-size: 18px; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; z-index: 9; }
+#metka8 { position: absolute; left: 269px; top: 742px; width: 151px; height: 101px; z-index: 7; rotate: -45deg; }
+#metka8:hover + #lavel8 { opacity: 1; visibility: visible; }
