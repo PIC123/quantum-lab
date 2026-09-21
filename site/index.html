@@ -7,6 +7,7 @@
 <script src="js/jquery.touch.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body onload="init()">
     <div class="container">  
@@ -30,6 +31,7 @@
 
 
                                 <div id="vlabs" onclick="menu_click('simulation')" class="menu_style ">Simulation</div>
+                                <div id="vlabs_menu" onclick="menu_click('vlabs')" class="menu_style">v-Labs</div>
                                 <div id="assessment" onclick="menu_click('assessment')" class="menu_style no_active">Assessment</div>
                                 <div id="resources" onclick="menu_click('resources')" class="menu_style no_active">Resources</div>
                                 <div id="ar" onclick="menu_click('ar')" class="menu_style no_active"> AR</div>
@@ -57,15 +59,15 @@
                          
                         <ul class="submenu_xr">
 														<li><a  onclick="menu_click('equipment')" href="#">3D</a></li>
-															<li><a  onclick="menu_click('nowvlabs')"   href="#">Diagram </a></li>
+															<li><a  onclick="menu_click('diagram')"   href="#">Diagram </a></li>
                         </ul>
                           
                           </li>
-                          <li><a  href="#" id="workflow2" onclick="menu_click('workflow')">Simulation</a>
+                          <li><a  href="#" id="workflow2" onclick="menu_click('simulation')">Simulation</a>
 
 
 
-								<li><a     href="#"  id="vlabs2" onclick="menu_click('vlabs')" class="no_active">v-Lavs</a>	
+								<li><a     href="#"  id="vlabs2" onclick="menu_click('vlabs')">v-Labs</a>	
                 <li><a     href="#"  id="assessment2" onclick="menu_click('assessment')" class="no_active">Assessment</a>		
 								<li><a    href="#"  id="resources2" onclick="menu_click('resources')" class="no_active">Resources</a>	</li>
 								<li><a    href="#"  id="ar2" onclick="menu_click('ar')" class="no_active">AR</a>	</li>

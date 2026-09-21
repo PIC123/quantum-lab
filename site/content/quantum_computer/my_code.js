@@ -34,7 +34,8 @@ function init()
     
   if (isMobileDevice) { 
       console.log("You are using a Mobile Device"); 
-    document.getElementById("btn1").style.fontSize="30px"
+    var btn1 = document.getElementById("btn1"); // B1: element is commented out in the HTML
+    if (btn1) btn1.style.fontSize="30px"
    
   } else { 
       console.log("You are using Desktop"); 

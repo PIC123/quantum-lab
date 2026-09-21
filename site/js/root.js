@@ -40,6 +40,9 @@ function open_block()
           case "simulation":
             open_page("content/sim4/") // open_diagram()// код для значения1
           break;
+          case "vlabs":
+            open_page("labs/") // guided experiments module (see docs/AUDIT.md)
+          break;
         }
   }
 
