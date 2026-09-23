@@ -38,7 +38,7 @@ function open_block()
             open_page("diagram.htm") // open_diagram()// код для значения1
           break;
           case "simulation":
-            open_page("content/sim4/") // open_diagram()// код для значения1
+            open_page("content/sim4/index.htm") // explicit file: not every host serves index.htm as a directory index
           break;
           case "vlabs":
             open_page("labs/") // guided experiments module (see docs/AUDIT.md)
