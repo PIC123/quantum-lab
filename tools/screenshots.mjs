@@ -22,11 +22,17 @@ for (const [name, opts] of [['desktop', { viewport: { width: 1440, height: 900 }
   const page = await ctx.newPage();
   const errors = [];
   page.on('pageerror', (e) => errors.push(String(e)));
-  // the shell with the labs open in a panel
+  // the site shell: landing page, apparatus viewer, classic multipanel view
   await page.goto(BASE, { waitUntil: 'load' });
+  await page.waitForTimeout(1500);
+  await page.screenshot({ path: `${OUT}/${name}-landing.png`, fullPage: true });
+  await page.goto(`${BASE}view.html?app=equipment`, { waitUntil: 'load' });
+  await page.waitForTimeout(9000);
+  await page.screenshot({ path: `${OUT}/${name}-viewer-equipment.png` });
+  await page.goto(`${BASE}classic.html`, { waitUntil: 'load' });
   await page.evaluate(() => { menu_click('vlabs'); select_block(1); });
   await page.waitForTimeout(1500);
-  await page.screenshot({ path: `${OUT}/${name}-shell-vlabs-panel.png` });
+  await page.screenshot({ path: `${OUT}/${name}-classic-vlabs-panel.png` });
   await page.goto(`${BASE}labs/`, { waitUntil: 'load' });
   await page.waitForTimeout(500);
   await page.screenshot({ path: `${OUT}/${name}-home.png`, fullPage: true });

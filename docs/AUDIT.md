@@ -88,7 +88,7 @@ The recommendation, implemented in this branch:
 
 ## 8. What was changed in this branch
 
-- `site/`: the snapshot, then the B1–B6 fixes in a separate commit.
+- `site/`: the snapshot, then the B1–B6 fixes in a separate commit, then a new front end: `index.html` (landing page), `view.html` (apparatus viewer) and `css/site.css`. The original multipanel shell is unchanged and reachable as `classic.html`; the three sub-apps are untouched.
 - `site/labs/`: the new v-Labs module with all eight experiments of the plan, wired to the v-Labs menu. Screenshots of every experiment at desktop and phone size are in `docs/screenshots/labs/`.
 - `tests/`: unit tests for the simulation core (`npm test`).
 - `docs/PLAN.md`: the plan revised to match this audit. `CHANGELOG.md`: the summary.

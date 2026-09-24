@@ -20,6 +20,12 @@ function route() {
   app.append(home());
 }
 
+function topbar() {
+  return el('div', { class: 'topbar' },
+    el('a', { class: 'topbar-brand', href: '../' }, el('img', { src: '../images/nc_tiqp_logo.jpg', alt: '' }), el('span', { text: 'TIQC Lab' }), el('span', { class: 'topbar-sub', text: 'v-Labs' })),
+    el('nav', { class: 'topbar-nav', 'aria-label': 'Site' }, el('a', { href: '../#apparatus', text: 'Apparatus' }), el('a', { href: '../#how', text: 'How it works' }), el('a', { href: '../', text: 'Site home' })));
+}
+
 function statusOf(entry) {
   const p = store.progress(entry.id);
   if (!entry.load) return { label: 'Coming soon', cls: 'is-soon' };
@@ -47,6 +53,7 @@ function home() {
   const sound = toggle({ id: 'sound', label: 'Sound', checked: store.settings.sound, onChange: (v) => store.setSetting('sound', v) });
   const done = catalog.filter((e) => store.progress(e.id).completed).length;
   return el('div', { class: 'home' },
+    topbar(),
     el('header', { class: 'home-head' },
       el('div', null,
         el('h1', { text: 'Guided experiments' }),
@@ -79,6 +86,7 @@ function notebook() {
     document.body.append(a); a.click(); a.remove();
   };
   return el('div', { class: 'home notebook' },
+    topbar(),
     el('header', { class: 'home-head' },
       el('div', null, el('h1', { text: 'Lab notebook' }), el('p', { class: 'home-sub', text: 'Filled in automatically from your predictions, calibrations and completed missions.' })),
       el('div', { class: 'home-side' }, el('a', { class: 'btn', href: '#/', text: '← Experiments' }), button(`Export CSV (${events.length} events)`, download))),

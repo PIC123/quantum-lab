@@ -5,6 +5,7 @@ All notable changes to the TIQC Lab site and the v-Labs module.
 ## 2.0.0 — 2026-09-21
 
 ### Added
+- New site shell: a landing page (`site/index.html`) with the experiment catalog, apparatus cards and an animated ion; an apparatus viewer (`site/view.html`) for the 3D model, beam diagram and spinning saddle with side-by-side and full-screen modes; shared header, favicon and stylesheet (`css/site.css`). The old multipanel interface is kept unchanged as `site/classic.html`.
 - `docs/AUDIT.md`: Phase 0 audit of the live site with screenshots in `docs/screenshots/existing/`.
 - `docs/PLAN.md`: the TIQC Lab 2.0 plan revised to match the audit.
 - `site/labs/`: the v-Labs module, a self-contained set of guided experiments that the shell opens from the new **v-Labs** menu item. Plain ES modules, no build step.

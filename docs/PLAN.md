@@ -12,6 +12,7 @@ Revised 2026-09-21. The original plan (`TIQC-Lab-2.0-Plan.md`, 2026-09-20) was w
 | Reuse the existing 3D engine for the lab view | 2D canvas for every experiment | Runs at 60 fps on a phone, keeps the module under 150 KB, and none of the eight experiments needs 3D to make its point. Three.js stays available for a future 3D view of experiments 1 and 6. |
 | Ion species: match the existing lab | ⁴⁰Ca⁺ (397/866/729 nm) | The Diagram's labels fix it. |
 | Phased build with an owner check-in after each phase | All eight experiments built in one pass on this branch | The owner asked for the audit and for "what improvements and labs you can make"; everything is on one branch and can be reviewed together. Nothing in the existing app was removed. |
+| Keep the multipanel shell as the entry point | New landing page and apparatus viewer; the multipanel shell stays as `classic.html` | The owner asked for a clean, modern front end. The sub-apps are unchanged and the old interface is one click away. |
 | AR hooks | Not done | There is no AR mode in the current app to reuse (the menu item has no code behind it). |
 | Assessment integration | Notebook + CSV export only | There is no Assessment section yet. The event log is shaped for it (`store.exportCsv()`). |
 

@@ -1,0 +1,181 @@
+<html>
+<head>
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script src="js/root.js"></script>
+<script src="js/jquery-latest.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.touch.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body onload="init()">
+    <div class="container">  
+            <div style="text-align:left;width:55px;margin:5px"><img src="images/nc_tiqp_logo.jpg" width="55px"/></div>
+            
+            <div class="menu_center" style="width:80%">
+                        <div class="title">Virtual Trapped-Ion Quantum Computer Laboratories</div>
+                        <div id="menu1">
+                              
+                        
+                          <div ><nav><ul class="topmenu2 "  >
+                                              <li><a class="menu_style">Equipment</a> 
+                                                      <ul class="submenu2">
+                                                      <li><a  onclick="menu_click('equipment')" >&ensp; 3D</a></li>
+                                                      <li><a onclick="menu_click('diagram')">  &ensp;Diagram</a></li>
+                                                      </ul>
+                                                </li>
+                                              </ul>
+                                              </nav>
+                            </div>
+
+
+                                <div id="vlabs" onclick="menu_click('simulation')" class="menu_style ">Simulation</div>
+                                <div id="vlabs_menu" onclick="menu_click('vlabs')" class="menu_style">v-Labs</div>
+                                <div id="assessment" onclick="menu_click('assessment')" class="menu_style no_active">Assessment</div>
+                                <div id="resources" onclick="menu_click('resources')" class="menu_style no_active">Resources</div>
+                                <div id="ar" onclick="menu_click('ar')" class="menu_style no_active"> AR</div>
+                        </div>
+
+
+
+            </div>
+            
+            
+            <div style="display:flex;max-width:40px;align-items: center;width:10%">
+            <nav>
+					<ul class="topmenu">
+					  <li><a  class="submenu-link" ><img src="images/menu.png" /></a>
+						<ul class="submenu_xr" id="menu2">
+                              
+							
+											<!--ul class="submenu_xr">
+														<li><a   onclick="menu_click('target')"  href="#">Target Audience</a></li>
+															<li><a  onclick="menu_click('nowvlabs')"   href="#">How v-Labs can be used</a></li>
+														</ul-->
+							
+							   </li>
+			                    <li><a   href="#"  id="equipment2" onclick="menu_click('equipment')">Equipment</a>	
+                         
+                        <ul class="submenu_xr">
+														<li><a  onclick="menu_click('equipment')" href="#">3D</a></li>
+															<li><a  onclick="menu_click('diagram')"   href="#">Diagram </a></li>
+                        </ul>
+                          
+                          </li>
+                          <li><a  href="#" id="workflow2" onclick="menu_click('simulation')">Simulation</a>
+
+
+
+								<li><a     href="#"  id="vlabs2" onclick="menu_click('vlabs')">v-Labs</a>	
+                <li><a     href="#"  id="assessment2" onclick="menu_click('assessment')" class="no_active">Assessment</a>		
+								<li><a    href="#"  id="resources2" onclick="menu_click('resources')" class="no_active">Resources</a>	</li>
+								<li><a    href="#"  id="ar2" onclick="menu_click('ar')" class="no_active">AR</a>	</li>
+								
+							</ul>
+					  </li>
+					 </ul>
+				  </nav>
+
+
+
+            </div>
+            <div style="text-align:right;width:75px;margin:5px"><img src="images/atel_logo.jpg" width="75px"/></div>
+</div>
+
+    <div id="block_frame" >
+                          <div id="block1" zoom="false" nomer="1" style="display:block"> 
+                          <div  id="frame1" src="about:blank"   ></div> 
+                          <div class="nomer" >1</div>
+                                   <div class="panel_but">
+                                   <img  src="images/but4.png"  class="but4" onClick="exit_click(1)"/>
+                                          <img src="images/but2_1.png" class="but2" onClick="zoom_block(this)" />
+                                           <img  src="images/but3.png" class="but3"  onClick="close_block(this,1)"/>
+                                   </div>
+
+                               
+                            
+                           
+                          </div>
+                          <div id="line1"></div>
+                          <div id="block2"  zoom="false" nomer="2" style="display:block"> 
+                          <div id="frame2" src="about:blank"></div> 
+                          <div class="nomer" >2</div>
+                          <div class="panel_but">
+                                 
+                          <img  src="images/but4.png"  class="but4" onClick="exit_click(2)"/>
+                                   <img src="images/but2_1.png" class="but2" onClick="zoom_block(this)" />
+                                   <img  src="images/but3.png" class="but3"  onClick="close_block(this,2)"/>
+
+                                   </div>
+                         
+                          </div>
+                         
+
+                          <div id="line2"></div>
+
+                          <div id="block3"  zoom="false" nomer="3" style="display:block"> 
+                            <div   id="frame3" src="about:blank"></div> 
+                            <div class="nomer" >3</div>
+                            <div class="panel_but">
+                            <img  src="images/but4.png"  class="but4" onClick="exit_click(3)"/>
+                                   <img src="images/but2_1.png" class="but2" onClick="zoom_block(this)"/>
+                                   <img  src="images/but3.png" class="but3"  onClick="close_block(this,3)"/>
+
+                                   </div>
+                            </div>
+                          <div id="line3"></div>
+                          <div id="block4"  zoom="false" nomer="4" style="display:block">  
+                          <div   id="frame4" src="about:blank"></div> 
+                          <div class="nomer" >4</div>
+                                <div class="panel_but">
+                                <img  src="images/but4.png"  class="but4" onClick="exit_click(4)"/>
+                                        <img src="images/but2_1.png" class="but2" onClick="zoom_block(this)"/>
+                                        <img  src="images/but3.png" class="but3"  onClick="close_block(this,4)"/>
+
+                                   </div>
+                          
+                          </div>
+                          
+                         
+                         
+                </div>
+                <div id="block_tabs" style="display:none">
+                        <div id="tab1" class="active" onclick="tab_click(1)">Tab 1</div><div id="tab2" class="no_active" onclick="tab_click(2)">Tab 2</div><div id="tab3" class="no_active" onclick="tab_click(3)">Tab 3</div><div id="tab4" class="no_active" onclick="tab_click(4)">Tab 4</div>
+                </div>
+
+
+
+                  
+    <div style="position:absolute;top:100px;left:50%;margin-left:-150px; width:381px;display:none;z-index:30" id="block_selection" >
+		 <div  style="position:absolute;width:295px;background:#b2b2b2;height:350px;border:2px ridge" >
+     <img class="cls" src="images/close.png"  onClick="javascript:this.parentNode.parentNode.style.display='none'"/>
+				 <img src="images/table_icon1.png "  style="position: absolute;top:60px;left:20px"/>
+         <div  style="position: absolute;top:10px;left:15px;font-size:16px;font-weight:bold;width:250px;line-height:1.2;text-align:center">Choose the panel where the app will open</div>
+		     <div style="position: absolute;top:83px;left:40px;" class="cl_block" onclick="select_block(1)"></div>
+         <div style="position: absolute;top:83px;left:160px;"  class="cl_block" onclick="select_block(2)"></div>
+         <div style="position: absolute;top:204px;left:40px;" class="cl_block" onclick="select_block(3)"></div>
+         <div style="position: absolute;top:204px;left:160px;" class="cl_block" onclick="select_block(4)"></div>
+		</div>
+</div>
+    
+
+<div id="block_menu">
+<img src="images/tabs_icon.png" height="35px"  onclick="panel()" id="tabs_table" title="Switch to Tabs/Switch to Multipanel interface"/><br/>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

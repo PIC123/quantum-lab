@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apparatus · TIQC Lab</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="TIQC Lab home"><img src="images/nc_tiqp_logo.jpg" alt="North Carolina A&amp;T TIQP"><span>TIQC Lab<span class="brand-sub">Virtual Trapped-Ion Quantum Computer Laboratories</span></span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menu">☰</button>
+      <nav class="site-nav" id="nav" aria-label="Site">
+        <a href="./#experiments">Experiments</a>
+        <a href="view.html?app=equipment" aria-current="page">Apparatus</a>
+        <a href="./#how">How it works</a>
+        <a href="labs/#/notebook">Notebook</a>
+        <a class="btn btn-primary btn-sm" href="labs/">Start the labs</a>
+      </nav>
+      <img class="partner" src="images/atel_logo.jpg" alt="ATeL">
+    </div>
+  </header>
+
+  <main class="wrap viewer">
+    <aside class="viewer-side">
+      <nav class="viewer-tabs" aria-label="Apparatus views" id="tabs"></nav>
+      <div class="viewer-info" id="info"></div>
+      <div class="viewer-actions">
+        <button class="btn btn-sm" id="split">Side by side</button>
+        <button class="btn btn-sm" id="fullscreen">Full screen</button>
+        <a class="btn btn-sm" href="classic.html">Classic view</a>
+      </div>
+    </aside>
+    <div class="viewer-stage" id="stage"></div>
+  </main>
+
+  <script type="module">
+    import { initNav } from './js/site.js';
+    initNav();
+    const APPS = {
+      equipment: { title: '3D apparatus', src: 'content/quantum_computer/index.htm', intro: 'The complete trapped-ion setup as it sits on the optical table.', tips: ['Drag to orbit, scroll or pinch to zoom.', 'Show labels names the chamber, ion pump, ion gauge, camera, objective and helical resonator.', 'View 2 shows the alternative layout with its own optics.'] },
+      diagram: { title: 'Beam diagram', src: 'diagram.htm', intro: 'A top-down map of the vacuum chamber and every laser that reaches the ion.', tips: ['Labels on/off names each beam and part.', 'Click the chamber to zoom in on the qubit chip; Reset returns.', 'Cooling and detection use 397 nm, repump 866 nm, photo-ionisation 423 + 375 nm. The qubit itself is driven at 729 nm.'] },
+      simulation: { title: 'Spinning saddle', src: 'content/sim4/index.htm', intro: 'Why an oscillating field can trap a charge when a static one cannot.', tips: ['Press Start to spin the saddle, then Place ball.', 'Too slow and the ball rolls off; too fast and it is flung out; in between it stays.', 'Experiment 1, Catch an Ion, does the same with the real trap equations.'] },
+    };
+    const params = new URLSearchParams(location.search);
+    let current = APPS[params.get('app')] ? params.get('app') : 'equipment';
+    const tabs = document.getElementById('tabs'), info = document.getElementById('info'), stage = document.getElementById('stage');
+    let split = false, second = Object.keys(APPS).find((k) => k !== current);
+    function pane(key, { picker = false } = {}) {
+      const app = APPS[key];
+      const el = document.createElement('div'); el.className = 'pane';
+      const bar = document.createElement('div'); bar.className = 'pane-bar';
+      if (picker) {
+        const sel = document.createElement('select'); sel.setAttribute('aria-label', 'Second view');
+        for (const [k, a] of Object.entries(APPS)) { const o = document.createElement('option'); o.value = k; o.textContent = a.title; o.selected = k === key; sel.append(o); }
+        sel.addEventListener('change', () => { second = sel.value; render(); });
+        bar.append(sel);
+      } else { const t = document.createElement('span'); t.textContent = app.title; bar.append(t); }
+      const sp = document.createElement('span'); sp.className = 'spacer'; bar.append(sp);
+      const open = document.createElement('a'); open.href = app.src; open.target = '_blank'; open.rel = 'noopener'; open.textContent = 'Open in new tab ↗'; open.style.cssText = 'color:inherit;font-size:13px;text-decoration:none'; bar.append(open);
+      const frame = document.createElement('iframe'); frame.src = app.src; frame.title = app.title; frame.setAttribute('allow', 'fullscreen'); frame.loading = 'lazy';
+      el.append(bar, frame);
+      return el;
+    }
+    function render() {
+      document.title = `${APPS[current].title} · TIQC Lab`;
+      tabs.replaceChildren(...Object.entries(APPS).map(([k, a]) => { const t = document.createElement('a'); t.href = `view.html?app=${k}`; t.innerHTML = `<span class="dot"></span>${a.title}`; if (k === current) t.setAttribute('aria-current', 'page'); t.addEventListener('click', (e) => { e.preventDefault(); current = k; history.replaceState(null, '', `view.html?app=${k}`); render(); }); return t; }));
+      const a = APPS[current];
+      info.innerHTML = `<h2>${a.title}</h2><p>${a.intro}</p><ul>${a.tips.map((t) => `<li>${t}</li>`).join('')}</ul>`;
+      stage.classList.toggle('is-split', split);
+      stage.replaceChildren(pane(current), ...(split ? [pane(second, { picker: true })] : []));
+      document.getElementById('split').textContent = split ? 'Single view' : 'Side by side';
+    }
+    document.getElementById('split').addEventListener('click', () => { split = !split; render(); });
+    document.getElementById('fullscreen').addEventListener('click', () => { const f = stage.querySelector('iframe'); (f?.requestFullscreen || f?.webkitRequestFullscreen)?.call(f); });
+    render();
+  </script>
+</body>
+</html>

@@ -4,7 +4,9 @@ Source for the TIQC Lab site (https://atelearning.com/TIQCLab/) plus the new **v
 
 ```
 site/            the deployable static site (copy this folder to the web host)
-  index.html     multipanel shell (Equipment, Simulation, v-Labs, …)
+  index.html     landing page (experiments, apparatus, how it works)
+  view.html      apparatus viewer: 3D model, beam diagram, spinning saddle
+  classic.html   the original multipanel interface, unchanged
   content/       Equipment 3D and Simulation (Three.js)
   labs/          v-Labs: guided experiments (plain ES modules, no build)
 tests/           unit tests for labs/core (node --test)
@@ -20,7 +22,7 @@ npm test               # runs the simulation-core tests (Node 20+)
 node tools/screenshots.mjs http://127.0.0.1:8080/ docs/screenshots/labs
 ```
 
-Open http://localhost:8080/ for the shell (v-Labs menu → opens in a panel) or http://localhost:8080/labs/ for the experiments on their own.
+Open http://localhost:8080/ for the site, http://localhost:8080/labs/ for the experiments on their own, or http://localhost:8080/classic.html for the original multipanel interface.
 
 ## Deploy
 
